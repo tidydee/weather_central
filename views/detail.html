@@ -1,12 +1,10 @@
 DETAIL PAGE
 
-
-
 <span ng-repeat="temp in temperatureNames">
   <input type="radio" name="selectedTemperatureNamed" ng-model="selectedTemperatureName" ng-value="temp" ng-change="changedTemperatureTo(temp)"/> {{temp}}
 </span>
 
-<h2 ng-bind="cityNameForForecast"> {{cityNameForForecast(td)}} </h2>
+<h2 ng-bind="cityName"></h2>
 
 <div ><br>
     <table class="tg">
@@ -20,8 +18,7 @@ DETAIL PAGE
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="td in forecastVan | orderBy:sort:reverse">
-                <!-- <th class="tg-031e">{{cityNameForForecast(td)}}</th> -->
+            <tr ng-repeat="td in forecast | orderBy:sort:reverse">
                 <th class="tg-031e">{{td.date}}</th>
                 <th class="tg-031e"><img src="http://l.yimg.com/a/i/us/we/52/{{ td.code }}.gif"></th>
                 <th class="tg-031e">{{td.text}}</th>

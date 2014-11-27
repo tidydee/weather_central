@@ -16,7 +16,7 @@ var weatherApp = angular.module('weatherApp', ['ngRoute', 'weatherControllers'])
         templateUrl: 'views/list.html',
         controller: 'ListCtrl'
     })
-    .when('/weather/city/:cityID', {
+    .when('/weather/city/:cityName', {
         templateUrl: 'views/detail.html',
         controller:  'DetailCtrl'
     })
