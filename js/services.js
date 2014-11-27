@@ -27,7 +27,7 @@
                 var listing = JSON.parse(stringified);           // Convert to object.
 
                 var forecast = [];                               // Store 5 day forecast.
-
+                var forecastDate = [];                           // Stores forecast date
                 for (var result in listing) {
                     for (var item in listing[result].results) {
                         for (var day in listing[result].results.item.forecast) {
@@ -41,6 +41,19 @@
                     + error.message);
             }
             return forecast;
+        },
+
+        arrayToCelsius: function (forecast) {
+            for (var i = 0; i < forecast.length; i++) {
+                forecast[i]['high'] = this.getCelsius(forecast[i]['high']);
+            }
+
+            return forecast;
+        },
+
+        getCelsius: function (fahrenheit) {
+            celsius = (fahrenheit - 32) * 0.56
+            return celsius; // Calculation goes here.
         }
     }
 });

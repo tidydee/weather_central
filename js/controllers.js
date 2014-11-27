@@ -6,7 +6,7 @@ var weatherControllers = (function () {
     // Declare the application controller and inject the scope reference.
     weatherControllers.controller('AppCtrl', ['$scope', function ($scope) {
         // Define the title model.
-        $scope.title = "AngularJS Tutorial";
+        $scope.title = "AngularJS Tutorial - Yahoo Weather App";
     }]);
     // Inject the scope and new weatherService reference into the controller.
     weatherControllers.controller('ListCtrl', ['$scope', 'weatherService',
@@ -23,18 +23,10 @@ var weatherControllers = (function () {
                                         $scope.forecastVan = weatherService.getForecastFromData(data);
                                         console.log("forecastVan");
                                         console.log($scope.forecastVan);
-                                        console.log($scope.forecastVan[0]);
-                                        
-                                        // $scope.dateToday = []
-                                        // console.log("$scope.dateToday");
-                                        // console.log($scope.dateToday);
-                                        // for(var i = 0; i < $scope.forecastVan.length; i++) {
-                                        //   x = $scope.forecastVan[i].date
-                                        //   $scope.dateToday.push(x);
-                                        //   console.log('x');
-                                        //   console.log(x);
-                                        // }
-
+                                        // console.log($scope.forecastVan[0]);
+                                        // console.log("$scope.forecastVan[0]['date']");
+                                        // console.log($scope.forecastVan[0]['date']);
+                                        $scope.forecastDate = $scope.forecastVan[0]['date'];
 
                                         weatherService.getWeather('Honolulu').success(function (data) {
                                           $scope.forecastHon = weatherService.getForecastFromData(data);
@@ -51,9 +43,6 @@ var weatherControllers = (function () {
                                               console.log("forecastHav");
                                               console.log($scope.forecastHav);
                                               console.log($scope.forecastHav[0]);
-                                              x = $scope.forecastHav[0];
-
-                                              console.log(x);
                                               // Create index model
                                               $scope.forecastAll = [$scope.forecastVan[0], $scope.forecastHon[0], $scope.forecastSan[0], $scope.forecastHav[0]]
                                             });
@@ -74,21 +63,31 @@ var weatherControllers = (function () {
                                         else if ($scope.forecastHav[0] == forecast) {
                                           return 'Havana Cuba';
                                         }
-                                      }
+                                      };
+
+                                      // $scope.forecastVan = weatherService.getForecastFromData(data);
+                                      // $scope.forecastVan = weatherService.arrayToCelsius($scope.forecastVan);
+
 
                                       // Temperature
                                       // $scope.selectedCelcius = true;
 
-                                      $scope.temperatureNames = ['C', 'F'];
-                                      $scope.selectedTemperatureName = $scope.temperatureNames[1];
+                                      // $scope.temperatureNames = ['C', 'F'];
+                                      // $scope.selectedTemperatureName = $scope.temperatureNames[1];
                                       // F -> C FORMULA: (°F  -  32)  x  0.56 = °C
-                                      $scope.tempConverter = function(temp) {
-
-                                      }
+                                      // $scope.tempConverter = function(temp) {
+                                      // }
 
                                       $scope.changedTemperatureTo = function (temperatureName) {
                                         $scope.selectedTemperatureName = temperatureName
                                       };
                                   }]);
+    // Inject scope, $routeParams, and cardService  
+    weatherControllers.controller('DetailCtrl', ['$scope', '$routeParams', 'weatherService',
+                                  function ($scope, $routeParams, weatherService) {
+                                    weatherService.getWeather($scope, $routeParams.cityID, $routeParams.textID, $routeParams.highID, $routeParams.lowID);
+
+                                  }]);
+
     return weatherControllers;
 }());
