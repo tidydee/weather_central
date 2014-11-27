@@ -73,7 +73,7 @@ var weatherControllers = (function () {
                                       $scope.selectedTemperatureName = $scope.temperatureNames[1];
 
                                       $scope.changedTemperatureTo = function (temperatureName) {
-                                        $scope.forecastVan = weatherService.getForecastFromData(data);
+                                        // $scope.forecastVan = weatherService.getForecastFromData(data);
                                         $scope.forecastVan = weatherService.arrayToCelsius($scope.forecastVan);
                                         
                                       };

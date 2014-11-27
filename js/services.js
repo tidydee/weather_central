@@ -50,7 +50,9 @@
             return forecast;
         },
 
-        getCelsius: function (fahrenheit) {
+        getCelsius: function ($scope,fahrenheit) {
+              debugger;
+             $scope.celsius = this.getForecastFromData;
             celsius = (fahrenheit - 32) * 0.56
             return celsius; // Calculation goes here.
         }
