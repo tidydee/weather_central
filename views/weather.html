@@ -26,7 +26,7 @@
         </thead>
         <tbody>
             <tr ng-repeat="td in forecastAll | orderBy:sort:reverse">
-                <th class="tg-031e"><a href="#{{cityNameForForecast(td)}}">{{cityNameForForecast(td)}}</a></th>
+                <th class="tg-031e"><a href="#/weather/city/{{cityNameForForecast(td)}}">{{cityNameForForecast(td)}}</a></th>
                 <th class="tg-031e"><img src="http://l.yimg.com/a/i/us/we/52/{{ td.code }}.gif"></th>
                 <th class="tg-031e">{{td.text}}</th>
                 <th class="tg-031e">{{td.high}}</th>
