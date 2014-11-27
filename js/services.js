@@ -25,7 +25,6 @@
                 var stringified = JSON.stringify(data);          // Convert to a string.
                 stringified = stringified.split("\\n").join(""); // Remove new line '/n'.
                 var listing = JSON.parse(stringified);           // Convert to object.
-
                 var forecast = [];                               // Store 5 day forecast.
                 var forecastDate = [];                           // Stores forecast date
                 for (var result in listing) {
@@ -35,6 +34,7 @@
                         }
                     }
                 }
+                // debugger;
             }
             catch (error) {
                 alert("Weather reading error:" + error.name + ": "
