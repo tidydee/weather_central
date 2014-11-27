@@ -9,10 +9,9 @@ var weatherControllers = (function () {
         $scope.title = "AngularJS Tutorial - Yahoo Weather App";
     }]);
     // Inject the scope and new weatherService reference into the controller.
-    weatherControllers.controller('ListCtrl', ['$scope', 'weatherService',
-                                  function ($scope, weatherService) {
-                                      // Define the forecast data.  
-                                  }]);
+    weatherControllers.controller('ListCtrl', ['$scope', 'weatherService', function ($scope, weatherService) {
+      // Define the forecast data.  
+    }]);
 
     // Inject the scope and new weatherService reference into the controller.
     weatherControllers.controller('WeatherCtrl', ['$scope', 'weatherService',
@@ -65,22 +64,27 @@ var weatherControllers = (function () {
                                         }
                                       };
 
-                                      // $scope.forecastVan = weatherService.getForecastFromData(data);
-                                      // $scope.forecastVan = weatherService.arrayToCelsius($scope.forecastVan);
+
 
 
                                       // Temperature
                                       // $scope.selectedCelcius = true;
-
                                       $scope.temperatureNames = ['C', 'F'];
                                       $scope.selectedTemperatureName = $scope.temperatureNames[1];
+
+                                      $scope.changedTemperatureTo = function (temperatureName) {
+                                        $scope.forecastVan = weatherService.getForecastFromData(data);
+                                        $scope.forecastVan = weatherService.arrayToCelsius($scope.forecastVan);
+                                        
+                                      };
+
                                       // F -> C FORMULA: (°F  -  32)  x  0.56 = °C
                                       // $scope.tempConverter = function(temp) {
                                       // }
 
-                                      $scope.changedTemperatureTo = function (temperatureName) {
-                                        $scope.selectedTemperatureName = temperatureName
-                                      };
+                                      // $scope.changedTemperatureTo = function (temperatureName) {
+                                      //   $scope.selectedTemperatureName = temperatureName
+                                      // };
                                   }]);
     // Inject scope, $routeParams, and cardService  
     weatherControllers.controller('DetailCtrl', ['$scope', '$routeParams', 'weatherService',

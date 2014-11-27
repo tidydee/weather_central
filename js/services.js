@@ -34,7 +34,6 @@
                         }
                     }
                 }
-                // debugger;
             }
             catch (error) {
                 alert("Weather reading error:" + error.name + ": "
