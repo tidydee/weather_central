@@ -68,23 +68,19 @@ var weatherControllers = (function () {
 
 
                                       // Temperature
-                                      // $scope.selectedCelcius = true;
                                       $scope.temperatureNames = ['C', 'F'];
+                                      
                                       $scope.selectedTemperatureName = $scope.temperatureNames[1];
 
                                       $scope.changedTemperatureTo = function (temperatureName) {
-                                        // $scope.forecastVan = weatherService.getForecastFromData(data);
-                                        $scope.forecastVan = weatherService.arrayToCelsius($scope.forecastVan);
-                                        
+                                          // debugger;
+                                        if (temperatureName == 'C') {
+                                          $scope.forecastAll = weatherService.arrayToCelsius($scope.forecastAll);
+                                        }
+                                        else if (temperatureName == 'F') {
+                                          $scope.forecastAll;
+                                        }
                                       };
-
-                                      // F -> C FORMULA: (°F  -  32)  x  0.56 = °C
-                                      // $scope.tempConverter = function(temp) {
-                                      // }
-
-                                      // $scope.changedTemperatureTo = function (temperatureName) {
-                                      //   $scope.selectedTemperatureName = temperatureName
-                                      // };
                                   }]);
     // Inject scope, $routeParams, and cardService  
     weatherControllers.controller('DetailCtrl', ['$scope', '$routeParams', 'weatherService',

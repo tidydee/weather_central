@@ -42,18 +42,20 @@
             return forecast;
         },
 
-        arrayToCelsius: function (forecast) {
-            for (var i = 0; i < forecast.length; i++) {
-                forecast[i]['high'] = this.getCelsius(forecast[i]['high']);
+        arrayToCelsius: function (forecastArray) {
+            for (var i = 0; i < forecastArray.length; i++) {
+                forecastArray[i]['high'] = this.getCelsius(forecastArray[i]['high']);
+                forecastArray[i]['low'] = this.getCelsius(forecastArray[i]['low']);
             }
 
-            return forecast;
+            return forecastArray;
         },
 
-        getCelsius: function ($scope,fahrenheit) {
-              debugger;
-             $scope.celsius = this.getForecastFromData;
-            celsius = (fahrenheit - 32) * 0.56
+        getCelsius: function (fahrenheit) {
+            var fTempVal = this.getForecastFromData(fahrenheit);
+              // debugger;
+            // $scope.celsius = this.getForecastFromData;
+            var celsius = ((fahrenheit - 32) * 0.56).toFixed(0);
             return celsius; // Calculation goes here.
         }
     }
