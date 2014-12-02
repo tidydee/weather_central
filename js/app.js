@@ -24,7 +24,7 @@ var weatherApp = angular.module('weatherApp', ['ngRoute', 'weatherControllers'])
         /* When 'home' route is selected 
            use the 'list.html' template and the 'ListCtrl' controller. */
         templateUrl: 'views/weather.html',
-        controller:  'WeatherCtrl'
+        controller:  'AppCtrl'
     })
     // If no route is selected then use the 'home' route.
     .otherwise({ redirectTo: '/home' });

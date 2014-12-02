@@ -1,7 +1,8 @@
-DETAIL PAGE
+<span ng-bind="forecastDate" style="font-size:2em;">{{date}}</span>
 
-<span ng-repeat="temp in temperatureNames">
-  <input type="radio" name="selectedTemperatureNamed" ng-model="selectedTemperatureName" ng-value="temp" ng-change="changedTemperatureTo(temp)"/> {{temp}}
+<span>
+  <input type="radio" ng-model="selectedTemperatureName" value="C" ng-click="changedDetailTemperatureTo('C')" />C
+  <input type="radio" ng-model="selectedTemperatureName" value="F" ng-click="changedDetailTemperatureTo('F')"/>F
 </span>
 
 <h2 ng-bind="cityName"></h2>

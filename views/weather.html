@@ -1,8 +1,13 @@
 ﻿<span ng-bind="forecastDate" style="font-size:2em;">{{date}}</span>
 
 
-<span ng-repeat="temp in temperatureNames">
+<!-- <span ng-repeat="temp in temperatureNames">
   <input type="radio" name="selectedTemperatureNamed" ng-model="selectedTemperatureName" ng-value="temp" ng-change="changedTemperatureTo(temp)"/> {{temp}}
+</span> -->
+
+<span>
+  <input type="radio" ng-model="selectedTemperatureName" value="C" ng-click="changedTemperatureTo('C')" />C
+  <input type="radio" ng-model="selectedTemperatureName" value="F" ng-click="changedTemperatureTo('F')"/>F
 </span>
 
 <select ng-model="sort">
