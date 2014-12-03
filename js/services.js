@@ -43,7 +43,6 @@
         },
         //convert to C
         arrayToCelsius: function (forecastArray) {
-            // debugger;
             for (var i = 0; i < forecastArray.length; i++) {
                 forecastArray[i]['high'] = this.getCelsius(forecastArray[i]['high']);
                 forecastArray[i]['low'] = this.getCelsius(forecastArray[i]['low']);
@@ -54,14 +53,11 @@
 
         getCelsius: function (fahrenheit) {
             var fTempVal = this.getForecastFromData(fahrenheit);
-              // debugger;
-            // $scope.celsius = this.getForecastFromData;
             var celsius = ((fahrenheit - 32) * 0.56).toFixed(0);
-            return celsius; // Calculation goes here.
+            return celsius;
         },
         //convert to F
         arrayToFahrenheit: function (forecastArray) {
-            // debugger;
             for (var i = 0; i < forecastArray.length; i++) {
                 forecastArray[i]['high'] = this.getFahrenheit(forecastArray[i]['high']);
                 forecastArray[i]['low'] = this.getFahrenheit(forecastArray[i]['low']);
@@ -71,12 +67,9 @@
         },
 
         getFahrenheit: function (celsius) {
-            // debugger;
             var fTempVal = this.getForecastFromData(celsius);
-              // debugger;
-            // $scope.celsius = this.getForecastFromData;
              var fahrenheit = ((celsius * 9/5) + 32).toFixed(0);
-            return fahrenheit; // Calculation goes here.
+            return fahrenheit;
         }
     }
 });
